@@ -45,8 +45,14 @@ Looking for a powerful AI browser agent without the $200/month price tag of Open
 ## 📊 Key Features
 
 - **Multi-agent System**: Specialized AI agents collaborate to accomplish complex web workflows
+- **Computer Use Agent (CUA)**: Extend beyond browser to control your entire desktop (Windows, Linux, macOS)
+- **Vision-First Automation**: Screenshot-based visual understanding with coordinate-based actions
 - **Interactive Side Panel**: Intuitive chat interface with real-time status updates
-- **Task Automation**: Seamlessly automate repetitive web automation tasks across websites
+- **Task Automation**: Seamlessly automate repetitive tasks across websites and desktop applications
+- **Flexible Operation Modes**: 
+  - **Browser-Only**: Traditional browser automation (default)
+  - **Desktop Mode**: Full OS-level control with native messaging
+  - **Hybrid Mode**: Best of both worlds
 - **Follow-up Questions**: Ask contextual follow-up questions about completed tasks
 - **Conversation History**: Easily access and manage your AI agent interaction history
 - **Multiple LLM Support**: Connect your preferred LLM providers and assign different models to different agents
@@ -183,6 +189,7 @@ Nanobrowser allows you to configure different LLM models for each agent to balan
 
 Here are some powerful tasks you can accomplish with just a sentence:
 
+### Browser Automation
 1. **News Summary**:
    > "Go to TechCrunch and extract top 10 headlines from the last 24 hours"
 
@@ -191,6 +198,66 @@ Here are some powerful tasks you can accomplish with just a sentence:
 
 3. **Shopping Research**:
    > "Find a portable Bluetooth speaker on Amazon with a water-resistant design, under $50. It should have a minimum battery life of 10 hours"
+
+### Desktop Mode (with Native Host)
+4. **Cross-Application Tasks**:
+   > "Take a screenshot of my desktop, open VS Code, and create a new file with today's date"
+
+5. **System Automation**:
+   > "Find all PDF files in my Downloads folder and organize them by date"
+
+6. **Multi-App Workflows**:
+   > "Copy data from this spreadsheet and paste it into my email client"
+
+## 🖥️ Desktop Mode - Computer Use Agent
+
+Nanobrowser can extend beyond browser automation to control your entire desktop using Computer-Using Agent (CUA) technology.
+
+### What is Desktop Mode?
+
+Desktop Mode enables Nanobrowser to:
+- **Control any application** on your computer, not just the browser
+- **Use vision-based automation** with screenshot analysis and coordinate-based actions
+- **Interact with native OS features** like file managers, system settings, and desktop applications
+- **Automate cross-application workflows** that span multiple programs
+
+### How to Enable Desktop Mode
+
+1. **Install the Native Messaging Host**:
+   ```bash
+   cd native-host
+   pip install -r requirements.txt
+   python install_native_host.py --platform <linux|windows|macos>
+   ```
+
+2. **Enable in Settings**:
+   - Open Nanobrowser settings
+   - Navigate to "General Settings"
+   - Set "Computer Mode" to "Desktop" or "Hybrid"
+   - Enable "Native Messaging"
+
+3. **Test the Installation**:
+   ```bash
+   cd native-host
+   python test_native_host.py
+   ```
+
+### Platform Support
+
+| Platform | Status | Features |
+|----------|--------|----------|
+| **Linux (Ubuntu/Debian)** | ✅ Supported | Full desktop control with X11/Wayland |
+| **Windows** | ✅ Supported | Native Windows automation APIs |
+| **macOS** | ✅ Supported | Accessibility API integration |
+
+### Security & Privacy
+
+- The native host runs with your user permissions (no elevated privileges)
+- All communication is local (no network access)
+- Sandboxed by Chrome's native messaging protocol
+- You control what actions the agent can perform
+
+For detailed information, see the [Native Host Documentation](native-host/README.md).
 
 ## 🛠️ Roadmap
 
