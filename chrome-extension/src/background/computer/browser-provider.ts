@@ -102,9 +102,9 @@ export class BrowserComputerProvider implements IComputerProvider {
     logger.info('Capturing screenshot', { fullScreen });
 
     // Use chrome.tabs.captureVisibleTab for high-quality screenshots
+    // Note: quality parameter only applies to 'jpeg' format, not 'png'
     const dataUrl = await chrome.tabs.captureVisibleTab({
       format: 'png',
-      quality: 90,
     });
 
     // Convert data URL to base64 without the prefix

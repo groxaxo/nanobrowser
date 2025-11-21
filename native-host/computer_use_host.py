@@ -10,11 +10,15 @@ import struct
 import logging
 import base64
 import io
+import tempfile
+import os
 from typing import Dict, Any, Optional
 
-# Configure logging
+# Configure logging with cross-platform path
+log_dir = tempfile.gettempdir()
+log_path = os.path.join(log_dir, 'nanobrowser_native_host.log')
 logging.basicConfig(
-    filename='/tmp/nanobrowser_native_host.log',
+    filename=log_path,
     level=logging.DEBUG,
     format='%(asctime)s - %(levelname)s - %(message)s'
 )

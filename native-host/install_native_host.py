@@ -14,6 +14,11 @@ from pathlib import Path
 
 def get_extension_id():
     """Get the Chrome extension ID"""
+    # Check environment variable first for development/testing
+    env_id = os.environ.get('NANOBROWSER_EXTENSION_ID')
+    if env_id:
+        return env_id
+    
     # For development, this can be the unpacked extension ID
     # For production, this should be the Chrome Web Store ID
     return "imbddededgmcgfhfpcjmijokokekbkal"  # Production ID from Chrome Web Store

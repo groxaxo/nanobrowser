@@ -139,6 +139,7 @@ export interface ComputerConfig {
   enableNativeMessaging?: boolean; // For OS-level control
   platform?: 'windows' | 'linux' | 'macos';
   sandbox?: boolean; // Safety: restrict certain actions
+  messageTimeout?: number; // Timeout for native messages in ms (default: 30000)
 }
 
 /**

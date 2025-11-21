@@ -109,14 +109,15 @@ export class NativeComputerProvider implements IComputerProvider {
       // Send message with ID
       this.port!.postMessage({ ...message, id });
 
-      // Timeout after 30 seconds
+      // Timeout after configured time (default 30 seconds)
+      const timeout = this.config.messageTimeout || 30000;
       setTimeout(() => {
         const pending = this.pendingMessages.get(id);
         if (pending) {
           this.pendingMessages.delete(id);
           reject(new Error('Native message timeout'));
         }
-      }, 30000);
+      }, timeout);
     });
   }
 
