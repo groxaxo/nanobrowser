@@ -13,6 +13,9 @@ export interface GeneralSettingsConfig {
   displayHighlights: boolean;
   minWaitPageLoad: number;
   replayHistoricalTasks: boolean;
+  // Computer Use Agent (CUA) settings
+  computerMode: 'browser_only' | 'desktop' | 'hybrid';
+  enableNativeMessaging: boolean;
 }
 
 export type GeneralSettingsStorage = BaseStorage<GeneralSettingsConfig> & {
@@ -32,6 +35,8 @@ export const DEFAULT_GENERAL_SETTINGS: GeneralSettingsConfig = {
   displayHighlights: true,
   minWaitPageLoad: 250,
   replayHistoricalTasks: false,
+  computerMode: 'browser_only',
+  enableNativeMessaging: false,
 };
 
 const storage = createStorage<GeneralSettingsConfig>('general-settings', DEFAULT_GENERAL_SETTINGS, {

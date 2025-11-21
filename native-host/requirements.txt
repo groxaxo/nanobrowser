@@ -1,0 +1,12 @@
+# Nanobrowser Native Host Dependencies
+
+# Core automation library
+pyautogui>=0.9.54
+
+# Image processing
+Pillow>=10.0.0
+
+# Platform-specific dependencies
+# Linux: python3-xlib (install via apt: sudo apt-get install python3-xlib)
+# macOS: pyobjc-framework-Quartz (for screenshot support)
+# Windows: No additional dependencies needed
